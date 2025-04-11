@@ -7,7 +7,7 @@ const app=express()
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect('mongodb://127.0.0.1:27017/test')
+mongoose.connect('mongodb+srv://Lali:wPgHZ3JT8xmBVIpU@cluster0.ydvgawy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/test')
 
 // app.get('/paginated', async (req, res) => {
 //   const page = parseInt(req.query.page) || 1;
@@ -117,6 +117,12 @@ app.post('/tasks', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+app.get('/test', async (req, res) => {
+  res.json({
+    message: 'test'
+  })
+})
 
 
 
